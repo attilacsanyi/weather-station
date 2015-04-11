@@ -1,0 +1,20 @@
+/* 
+  ==================
+  [MODALS]
+  ==================
+*/
+
+/* Validation error message next to the label */
+.control-message {
+  color: #a94442;
+  float: right;
+}
+
+/* 
+  ==================
+  [ANGULAR]
+  ==================
+*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

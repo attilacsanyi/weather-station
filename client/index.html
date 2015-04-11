@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html data-ng-app="weatherStation" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="description" content="Simple Weather Station">
+  <meta name="author" content="Attila Csanyi">
+  <link rel="shortcut icon" href="assets/img/favicon.png">
+
+  <title>Weather Station</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- App style -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>   
+
+<body data-ng-controller="AppController as app" data-ng-cloak>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" data-ng-link="cities()">
+          <img alt="Weather Station" src="assets/img/favicon.png">
+        </a>
+        <p data-ng-bind="app.title" class="text-center navbar-text"></p>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <!--div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="">
+              <i class="glyphicon glyphicon-pencil"></i> Menu
+            </a>
+          </li>
+        </ul>
+      </div-->
+
+    </div>
+  </nav>
+
+  <div data-ng-viewport="default" class="container"></div>
+
+  <!-- VENDORS -->
+
+  <!-- JQuery -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- Angular -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="assets/lib/router.es5.js"></script>
+
+  <!-- Angular Bootstrap -->
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+  <!-- Angular App -->
+  <script src="app.module.js"></script>
+  <script src="app.controller.js"></script>
+
+  <!-- Angular Services -->
+  <script src="services/WeatherService.js"></script>
+
+  <!-- Angular Components -->
+  <script src="components/cities/CitiesController.js"></script>
+  <script src="components/city/CityController.js"></script>
+
+  <!-- Angular Models -->
+  <script src="models/City.js"></script>
+
+</body>
+</html>
