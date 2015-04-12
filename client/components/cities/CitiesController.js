@@ -16,7 +16,7 @@
         // View models
 
         vm.weatherService = WeatherService;
-        vm.cityList = [new City(1, 'London'), new City(2, 'Manchester'), new City(3, 'Luton'), new City(4, 'Birmingham')];
+        vm.cityList = vm.weatherService.defaultCityList();
 
         // View methods
 

@@ -3,3 +3,19 @@
   <span>City 1</span>
 </a>
 
+<table class="table table-hover">
+  <th>Name</th>
+  <th>Temperature</th>
+  <tr data-ng-repeat="city in cities.cityList">
+
+    <!-- City Name -->
+    <td>
+      <a data-ng-link="city({ id: city.getId() })" data-ng-bind="city.getName()"></a>
+    </td>
+
+    <!-- City Temperature-->
+    <td>60</td>
+    
+  </tr>
+</table>
+
