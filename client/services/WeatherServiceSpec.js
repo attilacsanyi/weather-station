@@ -60,29 +60,31 @@ describe('Weather Service', function() {
         $httpBackend = _$httpBackend_;
 
         // Mock response
-        var cityId = 1234;
-        var cityName = 'City Name';
-        var lon = 34;
-        var lat = 678;
-
-        var theOneCity = new City(cityId, cityName);
-        theOneCity.setLocation(lon, lat);
+        var data = {
+            id: 1234,
+            name: 'City Name',
+            coord: {
+                lon: 34,
+                lat: 678
+            }
+        };
+        var cityId = data.id;
 
         // Prepare expected service call for forcast by city id
         $httpBackend
             .expectJSONP('http://api.openweathermap.org/data/2.1/weather/city/' + cityId + '?units=metric&callback=JSON_CALLBACK')
-            .respond(theOneCity);
+            .respond(data);
 
         // Call the service method
         weatherService.getCityById(cityId).then(function(city){
 
             // Verify id and name
-            expect(city.getId()).toEqual(cityId);
-            expect(city.getName()).toEqual(cityName);
+            expect(city.getId()).toEqual(data.id);
+            expect(city.getName()).toEqual(data.name);
 
             // Verify lon and lat
-            expect(city.getLon()).toEqual(lon);
-            expect(city.getLat()).toEqual(lat);
+            expect(city.getLon()).toEqual(data.coord.lon);
+            expect(city.getLat()).toEqual(data.coord.lat);
         });
 
         // Simulate response

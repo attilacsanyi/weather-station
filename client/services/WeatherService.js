@@ -22,18 +22,18 @@
         // Implementation
 
         function defaultCityList () {
-            return [new City(1, 'London'), new City(2, 'Manchester'), new City(3, 'Luton'), new City(4, 'Birmingham')];
+            //return [new City(1, 'London'), new City(2, 'Manchester'), new City(3, 'Luton'), new City(4, 'Birmingham')];
+            return [ new City(6058560, 'London'), new City(2643339, 'Luton'), new City(4207625, 'Manchester'), new City(2655603, 'Birmingham') ];
         }
 
         function getCityById (cityId) {
             var city;
-            var getRequest = 'http://api.openweathermap.org/data/2.1/weather/city/' + cityId + '?units=metric&callback=JSON_CALLBACK';
+            var jsonpReq = 'http://api.openweathermap.org/data/2.1/weather/city/' + cityId + '?units=metric&callback=JSON_CALLBACK';
             var deferred = $q.defer();
-
-            $http.jsonp(getRequest).success(function (data) {
+            $http.jsonp(jsonpReq).success(function (data) {
                 city = new City(data.id, data.name);
-                city.setLocation(data.lon, data.lat);
-
+                city.setLocation(data.coord.lon, data.coord.lat);
+                //console.log(city);
                 deferred.resolve(city);
             }).error(function (data, status, headers, config) {
                 var reason = 'Something went wrong during calling forecast data by city id';

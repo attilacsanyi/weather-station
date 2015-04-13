@@ -5,11 +5,11 @@
         .module('weatherStation')
         .controller('CitiesController', CitiesController);
 
-    CitiesController.$inject = [ '$log', 'WeatherService', 'City' ];
+    CitiesController.$inject = [ '$log', 'WeatherService'];
 
     //////////////////////////////
     // CITIES CONTROLLER
-    function CitiesController($log, WeatherService, City) {
+    function CitiesController($log, WeatherService) {
         $log.info('Init CitiesController');
         var vm = this;
 

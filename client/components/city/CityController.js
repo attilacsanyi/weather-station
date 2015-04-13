@@ -5,13 +5,20 @@
         .module('weatherStation')
         .controller('CityController', CityController);
 
-    CityController.$inject = [ '$routeParams', '$log' ];
+    CityController.$inject = [ '$routeParams', 'WeatherService',  '$log' ];
 
     //////////////////////////////
     // CITY CONTROLLER
-    function CityController($routeParams, $log) {
+    function CityController($routeParams, WeatherService, $log) {
         $log.info('Init CityController');
         var vm = this;
+
+        // View models
+        WeatherService.getCityById($routeParams.id).then(function(city){
+            vm.self = city;
+        });
+
+        // View methods
 
     }
 

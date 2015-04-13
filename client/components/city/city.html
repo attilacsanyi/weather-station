@@ -1,2 +1,35 @@
-<div><p>Detail</p></div>
-<a data-ng-link="cities()">Back</a>
+<!-- City Weather details -->
+<div class="panel panel-default">
+
+  <!-- Header -->	
+  <div class="panel-heading">
+
+  	<!-- Title -->
+  	<h3 class="panel-title">	
+  		<p data-ng-bind="city.self.getName()"></p>
+  	</h3>
+
+  </div>
+
+  <!-- Body -->
+  <div class="panel-body">
+
+    <p>Coordinates</p>
+    <ul class="list-group">
+	  <li class="list-group-item">
+	    <span data-ng-bind="city.self.getLon()" class="badge"></span>
+	    Longitude
+	  </li>
+	  <li class="list-group-item">
+	    <span data-ng-bind="city.self.getLat()" class="badge"></span>
+	    Latitude
+	  </li>
+	</ul>
+	
+  </div>
+
+  <!-- Footer -->
+  <div class="panel-footer">
+  	<a data-ng-link="cities()">Back</a>
+  </div>
+</div>
