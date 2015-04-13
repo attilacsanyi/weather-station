@@ -1,4 +1,4 @@
-describe('City', function() {
+describe('City Model', function() {
 
     // First, we load the app's module
     beforeEach(module('weatherStation'));
