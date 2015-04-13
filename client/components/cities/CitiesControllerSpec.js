@@ -3,7 +3,7 @@ describe('Cities Controller', function() {
     // First, we load the app's module
     beforeEach(module('weatherStation')); 
 
-    var $citiesController, $scope, weatherService;
+    var citiesController, $scope, weatherService;
 
     beforeEach(inject(function(_$controller_, _$rootScope_, _WeatherService_) {
         $scope = _$rootScope_.$new();

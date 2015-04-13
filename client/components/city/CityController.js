@@ -14,11 +14,14 @@
         var vm = this;
 
         // View models
+
+        vm.self = {};
+
+        // View methods
+
         WeatherService.getCityById($routeParams.id).then(function(city){
             vm.self = city;
         });
-
-        // View methods
 
     }
 
