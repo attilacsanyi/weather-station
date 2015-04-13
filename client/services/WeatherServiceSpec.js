@@ -61,7 +61,12 @@ describe('Weather Service', function() {
 
         // Mock response
         var cityId = 1234;
-        var theOneCity = new City(cityId, 'City Name');
+        var cityName = 'City Name';
+        var lon = 34;
+        var lat = 678;
+
+        var theOneCity = new City(cityId, cityName);
+        theOneCity.setLocation(lon, lat);
 
         // Prepare expected service call for forcast by city id
         $httpBackend
@@ -71,9 +76,13 @@ describe('Weather Service', function() {
         // Call the service method
         weatherService.getCityById(cityId).then(function(city){
 
-            // Verify the only one result
-            expect(city.getId()).toEqual(theOneCity.getId());
-            expect(city.getName()).toEqual(theOneCity.getName());
+            // Verify id and name
+            expect(city.getId()).toEqual(cityId);
+            expect(city.getName()).toEqual(cityName);
+
+            // Verify lon and lat
+            expect(city.getLon()).toEqual(lon);
+            expect(city.getLat()).toEqual(lat);
         });
 
         // Simulate response

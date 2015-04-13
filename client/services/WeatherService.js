@@ -32,6 +32,8 @@
 
             $http.jsonp(getRequest).success(function (data) {
                 city = new City(data.id, data.name);
+                city.setLocation(data.lon, data.lat);
+
                 deferred.resolve(city);
             }).error(function (data, status, headers, config) {
                 var reason = 'Something went wrong during calling forecast data by city id';

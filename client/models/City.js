@@ -15,6 +15,16 @@
         var City = function (id, name) {
             this.id = id;
             this.name = name;
+
+            this.lon = 0;
+            this.lat = 0;
+        };
+
+        // Methods
+
+        City.prototype.setLocation = function (longitude, latitude) {
+            this.lon = longitude;
+            this.lat = latitude;
         };
 
         // Getters
@@ -25,6 +35,14 @@
 
         City.prototype.getName = function () {
             return this.name;
+        };
+
+        City.prototype.getLon = function () {
+            return this.lon;
+        };
+
+        City.prototype.getLat = function () {
+            return this.lat;
         };
 
         return City;
