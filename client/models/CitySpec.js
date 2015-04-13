@@ -62,7 +62,7 @@ describe('City Model', function() {
 
         // Not equal cases
         expect(city.equals(2)).not.toBeTruthy();
-        expect(city.equals(new Object())).not.toBeTruthy();
+        expect(city.equals({})).not.toBeTruthy();
         expect(city.equals(new City(234, 'London1'))).not.toBeTruthy();
         expect(city.equals(new City(6058560, 'London1'))).not.toBeTruthy();
         expect(city.equals(new City(234, 'London'))).not.toBeTruthy();
