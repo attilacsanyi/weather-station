@@ -21,14 +21,14 @@ describe('City', function() {
         expect(city.getLat()).toEqual(0);
     });
 
-    it('has "setLocation" api for setting longitude and latitude properties', function(){
-        expect(city.setLocation).toBeDefined();
+    it('has "setCoordinates" api for setting longitude and latitude properties', function(){
+        expect(city.setCoordinates).toBeDefined();
     });
 
-    it('"setLocation" api should set longitude and latitude properties', function(){
+    it('"setCoordinates" api should set longitude and latitude properties', function(){
         var lon = 5;
         var lat = 6;
-        city.setLocation(lon, lat);
+        city.setCoordinates(lon, lat);
 
         expect(city.getLon()).toEqual(lon);
         expect(city.getLat()).toEqual(lat);

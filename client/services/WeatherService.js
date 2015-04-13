@@ -32,7 +32,7 @@
             var deferred = $q.defer();
             $http.jsonp(jsonpReq).success(function (data) {
                 city = new City(data.id, data.name);
-                city.setLocation(data.coord.lon, data.coord.lat);
+                city.setCoordinates(data.coord.lon, data.coord.lat);
                 //console.log(city);
                 deferred.resolve(city);
             }).error(function (data, status, headers, config) {

@@ -22,7 +22,7 @@
 
         // Methods
 
-        City.prototype.setLocation = function (longitude, latitude) {
+        City.prototype.setCoordinates = function (longitude, latitude) {
             this.lon = longitude;
             this.lat = latitude;
         };
