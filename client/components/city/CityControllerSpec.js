@@ -13,7 +13,11 @@ describe('City Controller', function() {
         });
     }));
 
-    it('should have self available on its scope', function() {
+    it('should have "self" available on its scope', function() {
         expect($scope.city.self).toBeDefined();
+    });
+
+    it('should have "weather" available on its scope', function() {
+        expect($scope.city.weather).toBeDefined();
     });
 });

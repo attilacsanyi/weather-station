@@ -4,32 +4,73 @@
   <!-- Header -->	
   <div class="panel-heading">
 
-  	<!-- Title -->
-  	<h3 class="panel-title">	
-  		<p data-ng-bind="city.self.getName()"></p>
-  	</h3>
+    <!-- Title -->
+    <h3 data-ng-bind="city.self.getName()" class="panel-title"></h3>
 
   </div>
 
   <!-- Body -->
   <div class="panel-body">
 
-    <p>Coordinates</p>
+    <h3>Coordinates</h3>
     <ul class="list-group">
-	  <li class="list-group-item">
-	    <span data-ng-bind="city.self.getLon()" class="badge"></span>
-	    Longitude
-	  </li>
-	  <li class="list-group-item">
-	    <span data-ng-bind="city.self.getLat()" class="badge"></span>
-	    Latitude
-	  </li>
-	</ul>
-	
+      <li class="list-group-item">
+        <span data-ng-bind="city.self.getLon()" class="badge"></span>
+        Longitude
+      </li>
+      <li class="list-group-item">
+        <span data-ng-bind="city.self.getLat()" class="badge"></span>
+        Latitude
+      </li>
+    </ul>
+
+    <h3>Weather</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getName()" class="badge"></span>
+        State
+      </li>
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getDescription()" class="badge"></span>
+        Details
+      </li>
+      <li class="list-group-item">
+        <img data-ng-src="{{city.weather.getIcon()}}">
+      </li>
+    </ul>
+
+    <h3>Temperatures</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getTemp()" class="badge"></span>
+        Temperature
+      </li>
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getTempMin()" class="badge"></span>
+        Minimum temperature
+      </li>
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getTempMax()" class="badge"></span>
+        Maximum temperature
+      </li>
+    </ul>
+
+    <h3>Air</h3>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getPressure()" class="badge"></span>
+        Pressure
+      </li>
+      <li class="list-group-item">
+        <span data-ng-bind="city.weather.getHumidity()" class="badge"></span>
+        Humidity
+      </li>
+    </ul>
+
   </div>
 
   <!-- Footer -->
   <div class="panel-footer">
-  	<a data-ng-link="cities()">Back</a>
+    <a data-ng-link="cities()">Back</a>
   </div>
 </div>

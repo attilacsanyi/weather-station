@@ -16,11 +16,13 @@
         // View models
 
         vm.self = {};
+        vm.weather = {};
 
         // View methods
 
         WeatherService.getCityById($routeParams.id).then(function(city){
             vm.self = city;
+            vm.weather = city.getWeather();
         });
 
     }
