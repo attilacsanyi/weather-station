@@ -22,7 +22,6 @@
         // Implementation
 
         function defaultCityList () {
-            //return [new City(1, 'London'), new City(2, 'Manchester'), new City(3, 'Luton'), new City(4, 'Birmingham')];
             return [ new City(6058560, 'London'), new City(2643339, 'Luton'), new City(4207625, 'Manchester'), new City(2655603, 'Birmingham') ];
         }
 
@@ -33,7 +32,7 @@
             $http.jsonp(jsonpReq).success(function (data) {
                 city = new City(data.id, data.name);
                 city.setCoordinates(data.coord.lon, data.coord.lat);
-                //console.log(city);
+
                 deferred.resolve(city);
             }).error(function (data, status, headers, config) {
                 var reason = 'Something went wrong during calling forecast data by city id';

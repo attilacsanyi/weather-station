@@ -11,6 +11,8 @@ describe('City Model', function() {
         city = new City(6058560, 'London');
     }));
 
+    // Getters
+
     it('should contains id and name properties', function(){
         expect(city.getId()).toEqual(6058560);
         expect(city.getName()).toEqual('London');
@@ -20,6 +22,8 @@ describe('City Model', function() {
         expect(city.getLon()).toEqual(0);
         expect(city.getLat()).toEqual(0);
     });
+
+    // Methods
 
     it('has "setCoordinates" api for setting longitude and latitude properties', function(){
         expect(city.setCoordinates).toBeDefined();
