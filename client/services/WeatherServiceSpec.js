@@ -66,7 +66,21 @@ describe('Weather Service', function() {
             coord: {
                 lon: 34,
                 lat: 678
-            }
+            },
+            main: {
+                temp: 28,
+                temp_min: 26,
+                temp_max: 30,
+                pressure: 1000,
+                humidity: 50
+            },
+            weather: [
+                {
+                    main: 'sun',
+                    description: 'lot of sun',
+                    icon: '02b'
+                }
+            ]
         };
         var cityId = data.id;
 
@@ -85,6 +99,20 @@ describe('Weather Service', function() {
             // Verify lon and lat
             expect(city.getLon()).toEqual(data.coord.lon);
             expect(city.getLat()).toEqual(data.coord.lat);
+
+            // Verify weather data
+            var weather = city.getWeather();
+            expect(weather).toBeDefined();
+
+            // Verify temperatures
+            expect(weather.getTemp()).toEqual(data.main.temp);
+            expect(weather.getTempMin()).toEqual(data.main.temp_min);
+            expect(weather.getTempMax()).toEqual(data.main.temp_max);
+
+            // Verify pressure and humidity
+            expect(weather.getPressure()).toEqual(data.main.pressure);
+            expect(weather.getHumidity()).toEqual(data.main.humidity);
+
         });
 
         // Simulate response

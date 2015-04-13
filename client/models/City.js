@@ -5,11 +5,11 @@
         .module('weatherStation')
         .factory('City', CityModel);
 
-        CityModel.$inject = [ '$log' ];
+        CityModel.$inject = [ '$log', 'Weather' ];
 
     //////////////////////////////
     // CITY
-    function CityModel($log) {
+    function CityModel($log, Weather) {
 
         // Constructor
         var City = function (id, name) {
@@ -18,6 +18,8 @@
 
             this.lon = 0;
             this.lat = 0;
+
+            this.weather = {};
         };
 
         // Methods
@@ -25,6 +27,10 @@
         City.prototype.setCoordinates = function (longitude, latitude) {
             this.lon = longitude;
             this.lat = latitude;
+        };
+
+        City.prototype.setWeather = function (weather) {
+            this.weather = weather;
         };
 
         // Getters
@@ -43,6 +49,10 @@
 
         City.prototype.getLat = function () {
             return this.lat;
+        };
+
+        City.prototype.getWeather = function () {
+            return this.weather;
         };
 
         return City;

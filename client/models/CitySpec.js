@@ -3,11 +3,12 @@ describe('City Model', function() {
     // First, we load the app's module
     beforeEach(module('weatherStation'));
 
-    var city, City;
+    var city, City, Weather;
 
     // Initialize test city
-    beforeEach(inject(function(_City_) {
+    beforeEach(inject(function(_City_, _Weather_) {
         City = _City_;
+        Weather = _Weather_;
         city = new City(6058560, 'London');
     }));
 
@@ -23,6 +24,10 @@ describe('City Model', function() {
         expect(city.getLat()).toEqual(0);
     });
 
+    it('should contains weather property', function(){
+        expect(city.getWeather()).toEqual({});
+    });
+
     // Methods
 
     it('has "setCoordinates" api for setting longitude and latitude properties', function(){
@@ -36,5 +41,16 @@ describe('City Model', function() {
 
         expect(city.getLon()).toEqual(lon);
         expect(city.getLat()).toEqual(lat);
+    });
+
+    it('has "setWeather" api for setting weather information property', function(){
+        expect(city.setWeather).toBeDefined();
+    });
+
+    it('"setWeather" api should set weather property', function(){
+        var weather = new Weather('Clouds', 'few clouds', '02d');
+        city.setWeather(weather);
+
+        expect(city.getWeather()).toEqual(weather);
     });
 });
