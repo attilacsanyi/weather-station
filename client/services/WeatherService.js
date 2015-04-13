@@ -22,7 +22,32 @@
         // Implementation
 
         function defaultCityList () {
-            return [ new City(6058560, 'London'), new City(2643339, 'Luton'), new City(4207625, 'Manchester'), new City(2655603, 'Birmingham') ];
+            var defaultCities = [];
+
+            var deferred = $q.defer();
+
+            var getLondon = getCityById(6058560);
+            var getLuton = getCityById(2643339);
+            var getManchester = getCityById(4207625);
+            var getBirmingham = getCityById(2655603);
+
+            getLondon.then(function(london){
+                defaultCities.push(london);
+                getLuton.then(function(luton){
+                    defaultCities.push(luton);
+                    getManchester.then(function(manchester){
+                        defaultCities.push(manchester);
+                        getBirmingham.then(function(birmingham){
+                            defaultCities.push(birmingham);
+                            deferred.resolve(defaultCities);
+                        });
+                    });
+                });
+            }, function(reason){
+                deferred.resolve(defaultCities);
+            });
+
+            return deferred.promise;
         }
 
         function getCityById (cityId) {
@@ -47,7 +72,7 @@
             }).error(function (data, status, headers, config) {
                 var reason = 'Something went wrong during calling forecast data by city id';
                 deferred.reject(reason);
-                throw new Error(reason);
+                //throw new Error(reason);
             });
 
             return deferred.promise;

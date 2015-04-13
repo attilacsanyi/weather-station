@@ -68,6 +68,6 @@ describe('City Model', function() {
         expect(city.equals(new City(234, 'London'))).not.toBeTruthy();
 
         // Equal case
-        expect(city.equals(new City(6058560, 'London'))).not.toBeTruthy();
+        expect(city.equals(new City(6058560, 'London'))).toBeTruthy();
     });
 });

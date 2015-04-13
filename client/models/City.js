@@ -35,7 +35,7 @@
 
         City.prototype.equals = function (other) {
             if (other instanceof City &&
-                    other.getId == this.getId() &&
+                    other.getId() == this.getId() &&
                         other.getName() == this.getName()) return true;
             return false;
         };

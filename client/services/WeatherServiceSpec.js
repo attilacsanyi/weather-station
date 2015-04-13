@@ -28,26 +28,35 @@ describe('Weather Service', function() {
     });
 
     it('"defaultCityList" api should contains minimum 4 cities initially', function() {
-        expect(weatherService.defaultCityList().length).toBeGreaterThan(3);
+
+        // Call the api
+        weatherService.defaultCityList().then(function(defaultCities){
+            expect(defaultCities.length).toBeGreaterThan(3);
+        });
     });
 
     it('"defaultCityList" api should at least contains "London, Luton, Manchester, Birmingham"', function() {
-        var cityList = weatherService.defaultCityList();
-        var defaultCities = [ new City(6058560, 'London'), new City(2643339, 'Luton'), new City(4207625, 'Manchester'), new City(2655603, 'Birmingham') ];
-        var foundCities = [];
-        var city;
-        for (var i = 0,  len = cityList.length; i < len; i++) {
-            city = cityList[i];
-            var cityName = city.getName();
-            switch (cityName) {
-                case 'London':      foundCities.push(new City(6058560, 'London')); break;
-                case 'Luton':       foundCities.push(new City(2643339, 'Luton')); break;
-                case 'Manchester':  foundCities.push(new City(4207625, 'Manchester')); break;
-                case 'Birmingham':  foundCities.push(new City(2655603, 'Birmingham')); break;
-                default: break;
+        var london = new City(6058560, 'London');
+        var luton = new City(2643339, 'Luton');
+        var manchester = new City(4207625, 'Manchester');
+        var birmingham = new City(2655603, 'Birmingham');
+
+        // Call the api
+        weatherService.defaultCityList().then(function(defaultCities){
+            var foundCities = [];
+            var city, l =0;
+            for (var i = 0,  len = defaultCities.length; i < len; i++) {
+                city = defaultCities[i];
+                switch (city.getId()) {
+                    case 6058560:  if (city.equals(london)) foundCities.push(city); break;
+                    case 2643339:  if (city.equals(luton)) foundCities.push(city); break;
+                    case 4207625:  if (city.equals(manchester)) foundCities.push(city); break;
+                    case 2655603:  if (city.equals(birmingham)) foundCities.push(city); break;
+                    default: break;
+                }
             }
-        }
-        expect(foundCities).toEqual(jasmine.arrayContaining(defaultCities));
+            expect(foundCities).toEqual(jasmine.arrayContaining([ london, luton, manchester, birmingham ]));
+        });
     });
 
     // API getCityById 

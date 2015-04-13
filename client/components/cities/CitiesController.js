@@ -15,10 +15,13 @@
 
         // View models
 
-        vm.weatherService = WeatherService;
-        vm.cityList = vm.weatherService.defaultCityList();
+        vm.cityList = [];
 
         // View methods
+
+        WeatherService.defaultCityList().then(function(defaultCities){
+            vm.cityList = defaultCities;
+        });
 
     }
 
