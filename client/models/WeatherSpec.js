@@ -32,14 +32,14 @@ describe('Weather Model', function() {
 
     // Setters
 
-    it('has "setPressure" api for setting pressure property', function(){
+    it('has "setPressure" method for setting pressure property', function(){
         var pressure = 10;
         weather.setPressure(pressure);
 
         expect(weather.getPressure()).toEqual(pressure);
     });
 
-    it('has "setHumidity" api for setting humidity property', function(){
+    it('has "setHumidity" method for setting humidity property', function(){
         var humidity = 13;
         weather.setHumidity(humidity);
 
@@ -48,11 +48,11 @@ describe('Weather Model', function() {
 
     // Methods
 
-    it('has "setTemperatures" api for setting avg/min/max temperature properties', function(){
+    it('has "setTemperatures" method for setting avg/min/max temperature properties', function(){
         expect(weather.setTemperatures).toBeDefined();
     });
 
-    it('"setTemperatures" api should set avg/min/max temperature properties', function(){
+    it('"setTemperatures" method should set avg/min/max temperature properties', function(){
         var temp = 28;
         var tempMin = 26;
         var tempMax = 30;

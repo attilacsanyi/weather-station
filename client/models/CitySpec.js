@@ -30,11 +30,11 @@ describe('City Model', function() {
 
     // Methods
 
-    it('has "setCoordinates" api for setting longitude and latitude properties', function(){
+    it('has "setCoordinates" method for setting longitude and latitude properties', function(){
         expect(city.setCoordinates).toBeDefined();
     });
 
-    it('"setCoordinates" api should set longitude and latitude properties', function(){
+    it('"setCoordinates" method should set longitude and latitude properties', function(){
         var lon = 5;
         var lat = 6;
         city.setCoordinates(lon, lat);
@@ -43,14 +43,31 @@ describe('City Model', function() {
         expect(city.getLat()).toEqual(lat);
     });
 
-    it('has "setWeather" api for setting weather information property', function(){
+    it('has "setWeather" method for setting weather information property', function(){
         expect(city.setWeather).toBeDefined();
     });
 
-    it('"setWeather" api should set weather property', function(){
+    it('"setWeather" method should set weather property', function(){
         var weather = new Weather('Clouds', 'few clouds', '02d');
         city.setWeather(weather);
 
         expect(city.getWeather()).toEqual(weather);
+    });
+
+    it('has "equals" method for comparing with other objects', function(){
+        expect(city.equals).toBeDefined();
+    });
+
+    it('"equals" method properly compare city with other objects', function(){
+
+        // Not equal cases
+        expect(city.equals(2)).not.toBeTruthy();
+        expect(city.equals(new Object())).not.toBeTruthy();
+        expect(city.equals(new City(234, 'London1'))).not.toBeTruthy();
+        expect(city.equals(new City(6058560, 'London1'))).not.toBeTruthy();
+        expect(city.equals(new City(234, 'London'))).not.toBeTruthy();
+
+        // Equal case
+        expect(city.equals(new City(6058560, 'London'))).not.toBeTruthy();
     });
 });
