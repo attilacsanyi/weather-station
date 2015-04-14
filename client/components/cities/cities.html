@@ -1,7 +1,7 @@
 <table class="table table-hover">
   <th>City Name</th>
-  <th>Temperature</th>
-  <tr data-ng-repeat="city in cities.cityList">
+  <th><a href="#" ng-click="cities.reverseSortOrderByTemp = !cities.reverseSortOrderByTemp">Temperature</a></th>
+  <tr data-ng-repeat="city in cities.cityList | orderBy:cities.orderByTemp:cities.reverseSortOrderByTemp">
 
     <!-- City Name -->
     <td>

@@ -18,4 +18,8 @@ describe('Cities Controller', function() {
     it('should have city list on its scope to store the displayed cities', function() {
         expect($scope.cities.cityList).toBeDefined();
     });
+
+    it('should have reverse order by temp on its scope with false', function() {
+        expect($scope.cities.reverseSortOrderByTemp).not.toBeTruthy();
+    });
 });
